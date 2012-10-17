@@ -1,31 +1,25 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Events Sample</title>
- 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-        <meta charset="utf-8">
+	<head>
+		<title>Events Sample</title>
 
-        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-        <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
-    </head>
-    <body>
-        <h1>Events Sample</h1>
-        <hr/>
-        <div>
-            <div>
-                <label for="usernameInput" >User name:</label>
-                <input id="usernameInput" type="text" />
-            </div>
-            <div>
-                <button id="saveButton">Save to local storage</button>
-                <button id="refreshButton">Get from local storage</button>
-            </div>
-        </div>
-        <hr/>
-        <div>
-            <div id="notificationBox" style="font-weight:bold;"></div>
-        </div>
- 
-    </body>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+		<meta charset="utf-8">
+
+		<link href="styles/main.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+	</head>
+	<body>
+		<header class="header">
+			<h1>Events</h1>
+		</header>
+		<div class="content">
+			<div id="result"></div>
+		</div>
+		<footer class="footer">
+			<div>Cordova API Samples</div>
+		</footer>
+	</body>
 </html>
