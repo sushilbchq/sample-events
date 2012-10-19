@@ -1,4 +1,5 @@
 document.addEventListener("deviceready", onDeviceReady, false);
+
 var eventApp;
 
 function onDeviceReady() {
@@ -17,60 +18,60 @@ EventApp.prototype = {
         
 		document.addEventListener("pause",
 								  function() {
-									  that.onPause.apply(that, arguments);
+									  that._onPause.apply(that, arguments);
 								  }, 
 								  false);
 		
 		document.addEventListener("resume",
 								  function() {
-									  that.onResume.apply(that, arguments);
+									  that._onResume.apply(that, arguments);
 								  }, 
 								  false);
          
 		document.addEventListener("online",
 								  function() {
-									  that.onOnline.apply(that, arguments);
+									  that._onOnline.apply(that, arguments);
 								  },
 								  false);
         
 		document.addEventListener("offline",
 								  function() {
-									  that.onOffline.apply(that, arguments);
+									  that._onOffline.apply(that, arguments);
 								  },
 								  false);
          
 		window.addEventListener("batterystatus",
 								function() {
-									that.onBatteryStatus.apply(that, arguments)
+									that._onBatteryStatus.apply(that, arguments)
 								},
-								false); 
+								false);
 	},
     
-	onPause: function() {
+	_onPause: function() {
 		var that = this;
 		that.printEvent("Pause");
 	},
  
-	onResume: function() {
+	_onResume: function() {
 		var that = this;
 		that.printEvent("Resume");
 	},
  
-	onOnline: function() {
+	_onOnline: function() {
 		var that = this;
 		that.printEvent("Network online");
 	},
  
-	onOffline: function() {
+	_onOffline: function() {
 		var that = this;
 		that.printEvent("Network offline");
 	},
  
-	onBatteryStatus: function(batteryInfo) {
+	_onBatteryStatus: function(batteryInfo) {
 		var batteryLevel = batteryInfo.level,
-    		isPlugged = batteryInfo.isPlugged,
-    		that = this;
-    
+		isPlugged = batteryInfo.isPlugged,
+		that = this;
+
 		var notificationMessage = "Battery level (" + batteryLevel + "%). " + 
 								  "You are " + (isPlugged ? "" : "not") + "  plugged in.";
     
@@ -78,12 +79,11 @@ EventApp.prototype = {
          
 	},
 
-	getCurrentTime: function() {
+	_getCurrentTime: function() {
 		var currentTime = new Date(),
     		minutes = currentTime.getMinutes(), 
-    		hours = currentTime.getHours();
-	
-		var some;
+    		hours = currentTime.getHours(),
+    		some;
 	
 		if (hours > 11) {
 			some = " PM";
@@ -102,11 +102,11 @@ EventApp.prototype = {
 	},
     
 	printEvent: function(text) {
-		var newDiv = document.createElement('div'),
-    		resultBox = document.getElementById("result"),
-    		that = this;
+		var that = this,
+            newDiv = document.createElement('div'),
+    		resultBox = document.getElementById("result");
         
-		newDiv.innerHTML = '[' + that.getCurrentTime() + '] ' + text;
+		newDiv.innerHTML = '[' + that._getCurrentTime() + '] ' + text;
         
 		resultBox.appendChild(newDiv);
 	}
