@@ -9,7 +9,6 @@ function onDeviceReady() {
 }
 
 function EventApp() {
-    
 }
 
 EventApp.prototype = {
@@ -68,9 +67,9 @@ EventApp.prototype = {
 	},
  
 	_onBatteryStatus: function(batteryInfo) {
-		var batteryLevel = batteryInfo.level,
-		isPlugged = batteryInfo.isPlugged,
-		that = this;
+		var that = this
+            batteryLevel = batteryInfo.level,
+    		isPlugged = batteryInfo.isPlugged;
 
 		var notificationMessage = "Battery level (" + batteryLevel + "%). " + 
 								  "You are " + (isPlugged ? "" : "not") + "  plugged in.";
