@@ -1,3 +1,3 @@
-/sample-events/bin
-/sample-events/obj
-/sample-events.user-settings.xml
+*/bin
+*/obj
+*.user-settings.xml
