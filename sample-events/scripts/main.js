@@ -3,6 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 var eventApp;
 
 function onDeviceReady() {
+    navigator.splashscreen.hide();
 	eventApp = new EventApp();
 	eventApp.printEvent('deviceready');
 	eventApp.run();
