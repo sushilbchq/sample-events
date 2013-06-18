@@ -3,7 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 var eventApp;
 
 function onDeviceReady() {
-    navigator.splashscreen.hide();
+	navigator.splashscreen.hide();
 	eventApp = new EventApp();
 	eventApp.printEvent('deviceready');
 	eventApp.run();
@@ -69,44 +69,22 @@ EventApp.prototype = {
  
 	_onBatteryStatus: function(batteryInfo) {
 		var that = this
-            batteryLevel = batteryInfo.level,
-    		isPlugged = batteryInfo.isPlugged;
+		batteryLevel = batteryInfo.level,
+		isPlugged = batteryInfo.isPlugged;
 
 		var notificationMessage = "Battery level (" + batteryLevel + "%). " + 
 								  "You are " + (isPlugged ? "" : "not") + "  plugged in.";
     
 		that.printEvent(notificationMessage);
-         
 	},
-
-	_getCurrentTime: function() {
-		var currentTime = new Date(),
-    		minutes = currentTime.getMinutes(), 
-    		hours = currentTime.getHours(),
-    		some;
 	
-		if (hours > 11) {
-			some = " PM";
-		}
-		else {
-			some = " AM";
-		}
-	
-		if (minutes < 10) {
-			minutes = "0" + minutes
-		}
-	
-		var timeFormated = hours + ":" + minutes + some;
-	
-		return timeFormated;
-	},
     
 	printEvent: function(text) {
 		var that = this,
-            newDiv = document.createElement('div'),
-    		resultBox = document.getElementById("result");
-        
-		newDiv.innerHTML = '[' + that._getCurrentTime() + '] ' + text;
+		newDiv = document.createElement('div'),
+		resultBox = document.getElementById("result");
+		var currentTime = new Date().toLocaleTimeString().split(" ")[0];
+		newDiv.innerHTML = '[' + currentTime + '] ' + text;
         
 		resultBox.appendChild(newDiv);
 	}
