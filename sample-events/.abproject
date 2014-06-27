@@ -46,5 +46,6 @@
     "ID_RESOLUTION_HD720P"
   ],
   "Author": "",
-  "Description": "sample-events"
+  "Description": "sample-events",
+  "Framework": "Cordova"
 }
